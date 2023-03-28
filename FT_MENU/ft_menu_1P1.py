@@ -13,17 +13,6 @@ from re import search
 from datetime import date
 
 
-"""
-# for practice:
-# f4:8e:38:c5:96:7c mac pizza card
-# 14e4:165f ven id pizza card
-# 8086:1591 ven id sts4
-# 8086:1592 ven id sts3
-# 8086:0d5c ven id lisbon2
-# 1000:c010 ven id LBG x9
-# 8086:37c0 ven id LBG x2
-"""
-
 logname = ''
 
 def usb_test():
@@ -53,10 +42,10 @@ def tracking_check():
 
 def practice(): # for practice and script testing
     portnum = 4 # amount of ports
-    venid = "14e4:165f" # vendor ID
-    pcispeed = 5 # speed of PCI
-    pciwidth = 1 # width of PCI
-    macadrs = "f48e38c5967c" # MAC address of card
+    venid = "1a2b:3c4d" # vendor ID
+    pcispeed = 16 # speed of PCI
+    pciwidth = 16 # width of PCI
+    macadrs = "1a2b3c4d5e6f" # MAC address of card
     with open(logname + ".txt", "a+") as f: # creates and opens the log file
         f.write("Checked on: " + date.today().strftime("%d/%m/%Y") + "\n") # logs the date of testing
         f.write(PCI_CHECK.checkpci(portnum, venid, pcispeed, pciwidth) + "\n") # performs and logs the PCI test
@@ -122,7 +111,7 @@ def menu():
     card = ''
     try:
         card = int(input("choose an option: \n"
-                         "1 - Pizza card \n"
+                         "1 - Practice card \n"
                          "2 - STS4 \n"
                          "3 - STS3 \n"
                          "4 - Lisbon2 \n"
